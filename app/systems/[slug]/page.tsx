@@ -52,7 +52,7 @@ export default async function SystemPage({ params }: Params) {
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed">{system.oneLiner}</p>
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2">
-          {system.repo ? (
+          {system.repo && (
             <a
               href={system.repo}
               target="_blank"
@@ -61,7 +61,8 @@ export default async function SystemPage({ params }: Params) {
             >
               Repository <ArrowUpRight className="size-3.5" />
             </a>
-          ) : (
+          )}
+          {!system.repo && !system.site && !system.app && (
             <span className="text-muted-foreground font-mono text-sm">
               Repository in development
             </span>
@@ -75,6 +76,21 @@ export default async function SystemPage({ params }: Params) {
             >
               Live site <ArrowUpRight className="size-3.5" />
             </a>
+          )}
+          {system.app && (
+            <a
+              href={system.app}
+              target="_blank"
+              rel="noreferrer"
+              className="text-accent inline-flex items-center gap-1.5 font-mono text-sm hover:underline"
+            >
+              Open the app <ArrowUpRight className="size-3.5" />
+            </a>
+          )}
+          {system.license && (
+            <span className="text-muted-foreground font-mono text-sm">
+              {system.license} · open source
+            </span>
           )}
         </div>
         {system.stack.length > 0 && (

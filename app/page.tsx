@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { AnimatedHeading } from "@/components/animated-heading";
 import { FadeIn } from "@/components/fade-in";
+import { Starfield } from "@/components/starfield";
 import { Section } from "@/components/section";
 import { SystemCard } from "@/components/system-card";
 import { EssayListItem } from "@/components/essay-list-item";
@@ -21,7 +23,7 @@ const proofPoints = [
     label: "Mortgage records under HMDA compliance, zero-defect adherence",
   },
   {
-    value: "5 systems",
+    value: "6 systems",
     label: "Open operating layers, designed and built in public",
   },
 ];
@@ -48,16 +50,20 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-[1120px] px-5 md:px-8">
       {/* Act I — the claim */}
-      <section className="flex flex-col justify-center py-24 md:py-36">
+      <section className="relative flex flex-col justify-center py-24 md:py-36">
+        <Starfield className="pointer-events-none absolute -inset-x-5 inset-y-0 -z-10 h-full w-auto md:-inset-x-8" />
         <FadeIn>
           <p className="eyebrow mb-6">
             {person.fullName} · {person.role}
           </p>
-          <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-6xl">
-            I build operating systems for intelligence.
-          </h1>
+        </FadeIn>
+        <AnimatedHeading
+          text="I build operating systems for intelligence."
+          className="max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-6xl"
+        />
+        <FadeIn delay={0.35}>
           <p className="text-muted-foreground mt-6 max-w-2xl text-lg leading-relaxed">
-            {person.subline} One thesis, tested at five scales: intelligence compounds only when
+            {person.subline} One thesis, tested at six scales: intelligence compounds only when
             memory, orchestration, and governance become infrastructure.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
@@ -106,7 +112,7 @@ export default function HomePage() {
       </Section>
 
       {/* Act II — the evidence */}
-      <Section eyebrow="The systems" title="One architecture, five scales">
+      <Section eyebrow="The systems" title="One architecture, six scales">
         <div className="grid gap-6 md:grid-cols-2">
           {systems.map((system, i) => (
             <FadeIn key={system.slug} delay={i * 0.05}>

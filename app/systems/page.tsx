@@ -7,7 +7,7 @@ import { getAllSystems } from "@/lib/content";
 export const metadata: Metadata = buildMetadata({
   title: "Systems",
   description:
-    "Five operating systems, one thesis — enterprise runtimes, cognitive workspaces, and knowledge universes built on memory, orchestration, and governance.",
+    "Six operating systems, one thesis — interview simulation, enterprise runtimes, cognitive workspaces, and knowledge universes built on memory, orchestration, and governance.",
   path: "/systems",
 });
 
@@ -19,7 +19,7 @@ export default function SystemsPage() {
       <FadeIn>
         <p className="eyebrow mb-4">Systems</p>
         <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-5xl">
-          These are not five projects. They are one idea at five scales.
+          These are not six projects. They are one idea at six scales.
         </h1>
         <p className="text-muted-foreground mt-6 max-w-2xl leading-relaxed">
           An enterprise, a mind, a career, a civilization, a discipline — every complex system

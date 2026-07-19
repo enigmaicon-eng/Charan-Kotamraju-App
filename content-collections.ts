@@ -32,6 +32,8 @@ const systems = defineCollection({
     stack: z.array(z.string()).default([]),
     repo: z.string().optional(),
     site: z.string().optional(),
+    app: z.string().optional(),
+    license: z.string().optional(),
     order: z.number(),
     featured: z.boolean().default(true),
   }),

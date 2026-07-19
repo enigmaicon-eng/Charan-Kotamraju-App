@@ -1,0 +1,39 @@
+---
+title: Eigenvex
+oneLiner: A FAANG interview simulation platform — practice with the same rubric they grade you on. Free, forever.
+domain: The interview room
+status: Production
+stack: [AI interview simulation, Company-calibrated rubrics, Speech-to-text, BYOK]
+site: https://eigenvex-web.vercel.app
+app: https://eigenvex-app.vercel.app
+order: 1
+featured: true
+---
+
+## The problem
+
+Most engineers fail FAANG system design interviews not because they can't design — but because they don't know what's being scored. The hiring rubric is invisible to the candidate: each company weighs different signals, probes different failure modes, and grades against criteria you only discover after the rejection email. Preparation, meanwhile, is mostly passive — reading blog posts and watching videos — when the skill being tested is live, adversarial, and verbal.
+
+## The product
+
+Eigenvex is an AI-powered interview simulation platform, now in public beta, that puts candidates in realistic back-and-forth interviews graded against company-calibrated rubrics for Google, Meta, Amazon, and Netflix.
+
+- **Seven interview formats** — 1:1, panel, stress interview, bar-raiser, deep dive, rapid fire, and hiring-manager rounds, so a candidate can rehearse an entire loop, not just one conversation.
+- **Four difficulty levels** — from Warm-up to Brutal, matching preparation stage from first-time candidate to staff-level promotion.
+- **Company-calibrated rubrics** — feedback mapped to each organization's actual hiring criteria and values, making the invisible scoring visible.
+- **300+ real questions** — sourced from engineering blogs and community platforms, not invented toy prompts.
+- **Failure-mode analysis** — six scenario classes, including traffic spikes and cascade failures, because system design is scored on how designs break.
+- **AI-guided design analysis** — structured walkthroughs from requirements through data models.
+- **Speech-to-text** — answer out loud, the way the real interview works.
+
+## The business model
+
+Free — no subscription, ever. Every user gets free AI sessions monthly, and a bring-your-own-key model (Google, Anthropic, or OpenAI) unlocks unlimited practice at roughly $0.05–$0.15 per session. The candidate keeps control of cost and provider; the platform stays accessible to anyone.
+
+## Where it fits the thesis
+
+Eigenvex is [Interview Prep OS](/systems/interview-prep-os) graduated from template to product — the clearest demonstration that the operating-layer pattern ships. The same primitives, productized: memory (question banks, session history, per-company preparation state), orchestration (seven formats × four difficulties simulating a full loop), and governance (the rubric itself — explicit, calibrated scoring instead of vibes). It's also the pattern I apply everywhere: find a high-stakes process people treat as folklore, and give it an operating layer.
+
+## Status
+
+Live in public beta — [marketing site](https://eigenvex-web.vercel.app) and [web app](https://eigenvex-app.vercel.app).
