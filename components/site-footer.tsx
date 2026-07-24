@@ -15,10 +15,7 @@ export function SiteFooter() {
       <div className="mx-auto flex max-w-[1120px] flex-col gap-8 px-5 py-12 md:px-8">
         <div className="flex flex-col justify-between gap-6 sm:flex-row">
           <div className="space-y-2">
-            <p className="font-mono text-sm font-semibold">
-              charan<span className="text-accent">.os</span>{" "}
-              <span className="text-muted-foreground font-normal">v1</span>
-            </p>
+            <p className="font-serif text-base font-semibold">{person.fullName}</p>
             <p className="text-muted-foreground max-w-sm text-sm">
               Operating systems for intelligence — enterprises, operators, and learners.
             </p>

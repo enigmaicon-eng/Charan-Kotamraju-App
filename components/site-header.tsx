@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { primaryNav } from "@/config/nav";
+import { person } from "@/config/site";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
@@ -12,8 +13,8 @@ export function SiteHeader() {
   return (
     <header className="border-border bg-background/80 sticky top-0 z-50 border-b backdrop-blur-md">
       <div className="mx-auto flex h-14 max-w-[1120px] items-center justify-between px-5 md:px-8">
-        <Link href="/" className="text-foreground font-mono text-sm font-semibold tracking-tight">
-          charan<span className="text-accent">.os</span>
+        <Link href="/" className="text-foreground font-serif text-lg font-semibold tracking-tight">
+          {person.fullName}
         </Link>
         <nav aria-label="Primary" className="flex items-center gap-1 sm:gap-2">
           {primaryNav.map((item) => {
