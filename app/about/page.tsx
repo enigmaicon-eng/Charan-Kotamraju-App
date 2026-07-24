@@ -41,7 +41,7 @@ export default function AboutPage() {
           </div>
           <div>
             <p className="eyebrow mb-4">About</p>
-            <h1 className="text-3xl font-semibold tracking-tight md:text-4xl">
+            <h1 className="font-serif text-3xl font-semibold tracking-tight md:text-4xl">
               {person.fullName}{" "}
               <span className="text-muted-foreground align-middle font-mono text-sm font-normal">
                 {person.credential}

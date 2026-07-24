@@ -18,7 +18,9 @@ export default function WritingPage() {
     <div className="mx-auto max-w-[760px] px-5 py-16 md:px-8 md:py-24">
       <FadeIn>
         <p className="eyebrow mb-4">Writing</p>
-        <h1 className="text-3xl font-semibold tracking-tight md:text-5xl">Thinking, in public</h1>
+        <h1 className="font-serif text-3xl font-semibold tracking-tight md:text-5xl">
+          Thinking, in public
+        </h1>
         <p className="text-muted-foreground mt-6 max-w-xl leading-relaxed">
           Essays on operating layers for intelligence — enterprise AI, memory, orchestration, and
           governance. Arguments, not tutorials.

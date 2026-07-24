@@ -10,11 +10,11 @@ export interface NavItem {
 }
 
 export const primaryNav: NavItem[] = [
-  { title: "Systems", href: "/systems" },
+  { title: "Projects", href: "/#projects" },
   { title: "Thesis", href: "/thesis" },
-  { title: "Journey", href: "/journey" },
-  { title: "Writing", href: "/writing" },
-  { title: "About", href: "/about" },
+  { title: "Experience", href: "/#experience" },
+  { title: "Writing", href: "/#insights" },
+  { title: "About", href: "/#about" },
 ];
 
 export const footerNav: NavItem[] = [...primaryNav, { title: "RSS", href: "/feed.xml" }];

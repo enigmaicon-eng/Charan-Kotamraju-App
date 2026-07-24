@@ -18,7 +18,7 @@ export default function SystemsPage() {
     <div className="mx-auto max-w-[1120px] px-5 py-16 md:px-8 md:py-24">
       <FadeIn>
         <p className="eyebrow mb-4">Systems</p>
-        <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-5xl">
+        <h1 className="max-w-2xl font-serif text-3xl font-semibold tracking-tight text-balance md:text-5xl">
           These are not six projects. They are one idea at six scales.
         </h1>
         <p className="text-muted-foreground mt-6 max-w-2xl leading-relaxed">

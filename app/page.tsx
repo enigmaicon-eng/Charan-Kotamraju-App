@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { AnimatedHeading } from "@/components/animated-heading";
@@ -8,6 +9,8 @@ import { SystemCard } from "@/components/system-card";
 import { EssayListItem } from "@/components/essay-list-item";
 import { person } from "@/config/site";
 import { getAllEssays, getAllSystems } from "@/lib/content";
+
+const heroBadges = [person.credential, "PSPO I", "Agile & Waterfall", person.location];
 
 const proofPoints = [
   {
@@ -43,6 +46,30 @@ const pillars = [
   },
 ];
 
+const recentRoles = [
+  {
+    years: "2023 — Present",
+    role: "Product Manager",
+    org: "JPMorgan Chase & Co.",
+    summary:
+      "Incubated and shipped AI/ML products across ATM Channel and Home Lending — resiliency intelligence, cash optimization, and HMDA-compliant regulatory delivery at 100,000+ record scale.",
+  },
+  {
+    years: "2021 — 2023",
+    role: "Management Consultant",
+    org: "Accenture",
+    summary:
+      "Led enterprise transformation for Telecom and Media clients — cloud modernization, analytics, and digital operations across distributed engineering and business teams.",
+  },
+  {
+    years: "2018 — 2021",
+    role: "Digital Consulting & Business Analysis",
+    org: "Wipro Limited",
+    summary:
+      "Delivered enterprise software across Telecom platforms end-to-end — requirements through deployment and production support in high-volume environments.",
+  },
+];
+
 export default function HomePage() {
   const systems = getAllSystems();
   const essays = getAllEssays().slice(0, 3);
@@ -50,37 +77,61 @@ export default function HomePage() {
   return (
     <div className="mx-auto max-w-[1120px] px-5 md:px-8">
       {/* Act I — the claim */}
-      <section className="relative flex flex-col justify-center py-24 md:py-36">
+      <section id="home" className="relative py-24 md:py-36">
         <Starfield className="pointer-events-none absolute -inset-x-5 inset-y-0 -z-10 h-full w-auto md:-inset-x-8" />
-        <FadeIn>
-          <p className="eyebrow mb-6">
-            {person.fullName} · {person.role}
-          </p>
-        </FadeIn>
-        <AnimatedHeading
-          text="I build operating systems for intelligence."
-          className="max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-6xl"
-        />
-        <FadeIn delay={0.35}>
-          <p className="text-muted-foreground mt-6 max-w-2xl text-lg leading-relaxed">
-            {person.subline} One thesis, tested at six scales: intelligence compounds only when
-            memory, orchestration, and governance become infrastructure.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Link
-              href="/systems"
-              className="bg-accent text-accent-foreground inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-opacity duration-150 hover:opacity-90"
-            >
-              Explore the systems <ArrowRight className="size-4" />
-            </Link>
-            <Link
-              href="/thesis"
-              className="border-border hover:border-accent/40 inline-flex items-center gap-2 rounded-md border px-5 py-2.5 text-sm font-medium transition-colors duration-150"
-            >
-              Read the thesis
-            </Link>
+        <div className="grid items-center gap-12 md:grid-cols-[1.4fr_1fr]">
+          <div>
+            <FadeIn>
+              <p className="eyebrow mb-6">
+                {person.fullName} · {person.role}
+              </p>
+            </FadeIn>
+            <AnimatedHeading
+              text="I build operating systems for intelligence."
+              className="max-w-3xl font-serif text-4xl font-semibold tracking-tight text-balance md:text-6xl"
+            />
+            <FadeIn delay={0.35}>
+              <p className="text-muted-foreground mt-6 max-w-2xl text-lg leading-relaxed">
+                {person.subline} One thesis, tested at six scales: intelligence compounds only when
+                memory, orchestration, and governance become infrastructure.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link
+                  href="#projects"
+                  className="bg-accent text-accent-foreground inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-opacity duration-150 hover:opacity-90"
+                >
+                  Explore the systems <ArrowRight className="size-4" />
+                </Link>
+                <Link
+                  href="/thesis"
+                  className="border-border hover:border-accent/40 inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-colors duration-150"
+                >
+                  Read the thesis
+                </Link>
+              </div>
+              <ul className="mt-8 flex flex-wrap gap-2">
+                {heroBadges.map((badge) => (
+                  <li
+                    key={badge}
+                    className="border-border text-muted-foreground rounded-full border px-3 py-1 font-mono text-xs tracking-wide"
+                  >
+                    {badge}
+                  </li>
+                ))}
+              </ul>
+            </FadeIn>
           </div>
-        </FadeIn>
+          <FadeIn delay={0.15} className="justify-self-center md:justify-self-end">
+            <Image
+              src="/profile.jpg"
+              alt={`Portrait of ${person.fullName}`}
+              width={280}
+              height={350}
+              priority
+              className="border-border rounded-2xl border object-cover"
+            />
+          </FadeIn>
+        </div>
       </section>
 
       {/* Proof strip */}
@@ -112,7 +163,7 @@ export default function HomePage() {
       </Section>
 
       {/* Act II — the evidence */}
-      <Section eyebrow="The systems" title="One architecture, six scales">
+      <Section id="projects" eyebrow="The systems" title="One architecture, six scales">
         <div className="grid gap-6 md:grid-cols-2">
           {systems.map((system, i) => (
             <FadeIn key={system.slug} delay={i * 0.05}>
@@ -122,8 +173,70 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* About */}
+      <Section id="about" eyebrow="About" title="Transformation delivered with rigor and evidence">
+        <div className="grid gap-10 md:grid-cols-[220px_1fr] md:items-start">
+          <FadeIn>
+            <Image
+              src="/profile.jpg"
+              alt={`Portrait of ${person.fullName}`}
+              width={220}
+              height={275}
+              className="border-border rounded-2xl border object-cover"
+            />
+          </FadeIn>
+          <FadeIn delay={0.08}>
+            <p className="text-muted-foreground leading-relaxed">
+              I&apos;m a product manager building AI/ML, cloud, analytics, and enterprise platforms
+              across financial services, telecom, and media. At JPMorgan Chase I&apos;ve led and
+              shipped AI-driven products across ATM Channel and Home Lending — resiliency
+              intelligence, cash optimization, and enterprise compliance workflows operating at
+              significant scale.
+            </p>
+            <p className="text-muted-foreground mt-4 leading-relaxed">
+              What interests me isn&apos;t just AI capability, but how enterprises themselves evolve
+              in the AI era — which is why I design and build the six systems in public.
+            </p>
+            <Link
+              href="/about"
+              className="text-accent mt-6 inline-flex items-center gap-2 text-sm hover:underline"
+            >
+              Full bio <ArrowRight className="size-4" />
+            </Link>
+          </FadeIn>
+        </div>
+      </Section>
+
+      {/* Experience */}
+      <Section id="experience" eyebrow="Experience" title="Fourteen years inside complex systems">
+        <div className="divide-border border-border divide-y rounded-lg border">
+          {recentRoles.map((entry, i) => (
+            <FadeIn key={entry.org} delay={i * 0.05}>
+              <div className="p-6">
+                <div className="flex flex-wrap items-baseline justify-between gap-2">
+                  <h3 className="text-lg font-semibold tracking-tight">
+                    {entry.role}{" "}
+                    <span className="text-muted-foreground font-normal">· {entry.org}</span>
+                  </h3>
+                  <span className="text-accent font-mono text-xs tracking-wide">{entry.years}</span>
+                </div>
+                <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
+                  {entry.summary}
+                </p>
+              </div>
+            </FadeIn>
+          ))}
+        </div>
+        <Link
+          href="/journey"
+          className="text-accent mt-6 inline-flex items-center gap-2 text-sm hover:underline"
+        >
+          Full journey <ArrowRight className="size-4" />
+        </Link>
+      </Section>
+
       {/* Act III — the mind */}
-      <Section eyebrow="Writing" title="Thinking, in public">
+      <Section id="insights" eyebrow="Writing" title="Thinking, in public">
         <FadeIn>
           <div className="divide-border border-border divide-y rounded-lg border">
             {essays.map((essay) => (
@@ -140,11 +253,11 @@ export default function HomePage() {
       </Section>
 
       {/* Doorway */}
-      <Section className="border-border border-t">
+      <Section id="contact" className="border-border border-t">
         <FadeIn>
           <div className="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-2xl font-semibold tracking-tight md:text-3xl">
+              <h2 className="font-serif text-2xl font-semibold tracking-tight md:text-3xl">
                 Building something that needs an operating layer?
               </h2>
               <p className="text-muted-foreground mt-3 max-w-xl">
@@ -154,7 +267,7 @@ export default function HomePage() {
             </div>
             <a
               href={`mailto:${person.email}`}
-              className="bg-accent text-accent-foreground inline-flex shrink-0 items-center gap-2 rounded-md px-5 py-2.5 text-sm font-medium transition-opacity duration-150 hover:opacity-90"
+              className="bg-accent text-accent-foreground inline-flex shrink-0 items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-opacity duration-150 hover:opacity-90"
             >
               Get in touch <ArrowRight className="size-4" />
             </a>

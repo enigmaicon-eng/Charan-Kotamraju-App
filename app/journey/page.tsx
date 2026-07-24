@@ -117,7 +117,7 @@ export default function JourneyPage() {
     <div className="mx-auto max-w-[820px] px-5 py-16 md:px-8 md:py-24">
       <FadeIn>
         <p className="eyebrow mb-4">Journey</p>
-        <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-balance md:text-5xl">
+        <h1 className="max-w-2xl font-serif text-3xl font-semibold tracking-tight text-balance md:text-5xl">
           Fourteen years inside complex systems
         </h1>
         <p className="text-muted-foreground mt-6 max-w-2xl leading-relaxed">

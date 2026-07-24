@@ -25,7 +25,7 @@ export default function ThesisPage() {
     <article className="mx-auto max-w-[720px] px-5 py-16 md:px-8 md:py-24">
       <header className="border-border space-y-5 border-b pb-10">
         <p className="eyebrow">The thesis</p>
-        <h1 className="text-4xl font-semibold tracking-tight text-balance md:text-5xl">
+        <h1 className="font-serif text-4xl font-semibold tracking-tight text-balance md:text-5xl">
           The Operating Layer
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed">{essay.summary}</p>

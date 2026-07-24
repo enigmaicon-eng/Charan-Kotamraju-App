@@ -17,14 +17,16 @@ export function SiteHeader() {
         </Link>
         <nav aria-label="Primary" className="flex items-center gap-1 sm:gap-2">
           {primaryNav.map((item) => {
-            const active = pathname === item.href || pathname.startsWith(`${item.href}/`);
+            const active = !item.href.startsWith("/#") && pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-md px-2 py-1.5 text-[13px] transition-colors duration-150 sm:px-3 sm:text-sm",
-                  active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                  "rounded-full px-3 py-1.5 text-[13px] transition-colors duration-150 sm:px-4 sm:text-sm",
+                  active
+                    ? "bg-accent text-accent-foreground font-medium"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary",
                 )}
                 aria-current={active ? "page" : undefined}
               >
